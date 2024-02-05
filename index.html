@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <style>
+
+      *{
+
+        margin: 0%;
+        padding: 0%;
+      }
+
+      .fundo{
+        background-image: url(./pexels-neosiam-+-625219.jpg);
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 15px;
+      }
+
+      .Calculadora{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.6);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        color: aliceblue;
+        border-radius: 15px;
+        padding: 10px;
+        text-align: center;
+        font-family:Arial, Helvetica, sans-serif;
+         
+      }
+
+      .estilo{
+        background-color: black;
+        color: aliceblue;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        border: none;
+        margin: 2px;
+      }
+
+      .estilo:hover{
+        background-color:  rgba(0, 0, 0, 0.1);
+      }
+
+      #resultado{
+        background-color: white;
+        color: black;
+        width: 200px;
+        height: 25px;
+        margin: 10px;
+        text-align: right;
+        font-size: large;
+        padding: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    </style>
+
+  </head>
+
+<body>
+    <div class="fundo">
+      <h1>Calculando Caminhos para o Conhecimento!</h1>
+     <div class="Calculadora">
+            <h1>Calculadora</h1>
+            <p id="resultado"></p>
+            <table>
+              <tr>
+                <td><button class="estilo" onclick="limpar('')">c</button></td>
+                <td><button class="estilo" onclick="menos1('<')"><</button></td>
+                <td><button class="estilo" onclick="insert('/')">/</button></td>
+                <td><button class="estilo" onclick="insert('*')">x</button></td>
+              </tr>
+              <tr>
+                <td><button class="estilo" onclick="insert('7')">7</button></td>
+                <td><button class="estilo"onclick="insert('8')">8</button></td>
+                <td><button class="estilo"onclick="insert('9')">9</button></td>
+                <td><button class="estilo"onclick="insert('-')">-</button></td>
+              </tr>
+              <tr>
+                <td><button class="estilo"onclick="insert('4')">4</button></td>
+                <td><button class="estilo"onclick="insert('5')">5</button></td>
+                <td><button class="estilo"onclick="insert('6')">6</button></td>
+                <td><button class="estilo" onclick="insert('+')">+</button></td>
+              </tr>
+              <tr>
+                <td><button class="estilo"onclick="insert('1')">1</button></td>
+                <td><button class="estilo"onclick="insert('2')">2</button></td>
+                <td><button class="estilo"onclick="insert('3')">3</button></td>
+                <td rowspan="2"><button class="estilo" style="height: 100px" onclick="calcular()">=</button></td>
+              </tr>
+              <tr>
+                <td colspan = "2" ><button class="estilo" style="width: 100px;"onclick="insert('0')">0</button></td>
+                <td><button class="estilo" onclick="insert('.')">.</button></td>
+              </tr>
+          </table>
+      </div>
+    </div>
+    <script>
+
+      function insert(num){
+        var numero = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = numero + num;
+      }
+
+      function limpar(){
+        document.getElementById('resultado').innerHTML = "";
+      }
+
+      function menos1(){
+        var resultado = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+      }
+
+       function calcular(){
+        var resultado = document.getElementById('resultado').innerHTML;  
+
+          if(resultado){
+            var resultado = document.getElementById('resultado').innerHTML = eval(resultado);
+          }
+
+      }
+    </script>
+</body>
+</html>
